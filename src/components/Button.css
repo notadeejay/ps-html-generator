@@ -1,0 +1,21 @@
+.button {
+  font-family: 'Lato', sans-serif;
+    border-radius: .4rem;
+    border: 0;
+    font-size: 1rem;
+    height: 2rem;
+    line-height: 1.2rem;
+    margin-right: 1rem;
+    width: 8rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #FC5155;
+    color: #FC5155;
+    background-color: transparent;
+  }
+  
+  .button:hover {
+    color: white;
+    background-color: #FC5155;
+    border: 2px solid transparent;
+  }
