@@ -16,11 +16,18 @@ export default function Form(props) {
       } 
   } 
 
+  function clearForm() {
+    setText("")
+    setType("")
+    setLead("")
 
+  }
   return (
    <div className="container form">
     <form className="callout-form" onSubmit={event => { props.getCode(type, lead, text); 
-      event.preventDefault()}}>
+      clearForm()
+      event.preventDefault()
+      }}>
          <select 
           value={type} 
           onChange={event => {
