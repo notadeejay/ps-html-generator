@@ -16,6 +16,7 @@ export default function Form(props) {
       }
   } 
 
+
   function clear() {
     setLead("")
     setText("")

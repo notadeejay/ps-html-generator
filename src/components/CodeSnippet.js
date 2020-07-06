@@ -9,7 +9,7 @@ export default function Snippet(props) {
     
   return (
   <div className="container code">
-    <div className="snippet">
+    <div className="snippet html">
       <h3>HTML</h3>
       <CodeMirror value={props.html} options={{
     mode: 'html',
@@ -18,7 +18,7 @@ export default function Snippet(props) {
     lineWrapping: true
   }} />
       </div>
-    <div className="snippet">
+    <div className="snippet css">
       <h3>CSS</h3>
       <CodeMirror value={props.css} options={{
     mode: 'css',
