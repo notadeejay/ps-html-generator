@@ -19,7 +19,7 @@ export default function Snippet(props) {
   }} />
       </div>
     <div className="snippet css">
-      <h3>CSS</h3>
+      <h3>CSS(To be added inside of style tags)</h3>
       <CodeMirror value={props.css} options={{
     mode: 'css',
     theme: 'monokai',
