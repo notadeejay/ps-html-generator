@@ -10,19 +10,20 @@ function App() {
 
   
   function addCSS(color, type) {
-    let formatCSS = `.callout {
-      padding: 10px 20px;
-      max-width: 95%;
-      margin: 20px auto;
-      background-color: #F5F5F5;
-      color: black;
-      border-radius: 5px;
-    }
-
+    let formatCSS = `
+/* core formatting for the callout div */
+.callout {
+  padding: 10px 20px;
+  max-width: 95%;
+  margin: 20px auto;
+  background-color: #F5F5F5;
+  color: black;
+  border-radius: 5px;
+}
+/* adds the correct color border based on callout type */
 .${type}{
   border-left: 3px solid ${color};
-}
-    `
+}`
     setCSS(formatCSS)
   }
   
