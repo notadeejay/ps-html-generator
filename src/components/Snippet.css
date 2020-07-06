@@ -2,3 +2,37 @@
     border: 2px solid slategray;
     border-radius: 0.4em;
 }
+
+.callout {
+    padding: 10px 20px;
+    max-width: 95%;
+    margin: 20px auto;
+    background-color: #F5F5F5;
+    color: black;
+    border-radius: 5px;
+  }
+  
+  .instruction{
+    border-left: 3px solid #247F3B;
+  }
+  
+  .note {
+   border-left: 3px solid #1375AA;
+  }
+  
+  .warning {
+   border-left: 3px solid #D30307;
+  }
+  
+  .definition {
+  border-left: 3px solid #2B4497;
+  }
+  
+  .function {
+  border-left: 3px solid #8e44ad;
+  }
+
+  .example {
+      width: 100%;
+
+  }

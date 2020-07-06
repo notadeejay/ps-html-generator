@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Form.css'
 import './Snippet.css'
+import Callout from './Callout'
 import {Controlled as CodeMirror} from 'react-codemirror2'
 
 
@@ -25,8 +26,9 @@ export default function Snippet(props) {
     lineNumbers: true,
     lineWrapping: true
   }} />
+  
       </div>
-
+      <Callout html={props.html} />
   </div>
   );
 }
