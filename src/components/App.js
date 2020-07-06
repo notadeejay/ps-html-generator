@@ -10,8 +10,7 @@ function App() {
 
   
   function addCSS(color, type) {
-    let formatCSS = `
-/* core formatting for the callout div */
+    let formatCSS = `/* core formatting for the callout div */
 .callout {
   padding: 10px 20px;
   max-width: 95%;
