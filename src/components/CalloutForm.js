@@ -6,21 +6,27 @@ export default function Form(props) {
     const [lead, setLead] = useState("");
     const [type, setType] = useState("instruction" | "")
     const [text, setText] = useState("")
-    const [error, setError] = useState("");
 
    
   function validate() {
-      if (type === "") {
-        setError("The callout type cannot be blank");
-        return;
-      } 
+      if (type === 0) {
+        alert("The callout type cannot be blank");
+      } else {
+        props.getCode(type, lead, text); 
+      }
   } 
+
+  function clear() {
+    setLead("")
+    setText("")
+    setType("")
+    props.getCode(type, lead, text)
+  }
 
 
   return (
    <div className="container form">
-    <form className="callout-form" onSubmit={event => { props.getCode(type, lead, text); 
-      event.preventDefault()
+    <form className="callout-form" onSubmit={event => {event.preventDefault()
       }}>
          <select 
           value={type} 
@@ -56,7 +62,7 @@ export default function Form(props) {
             }}
           />
         
-        <Button onClick={validate} />
+        <Button validate={validate} clear={clear}/>
     </form>
     </div>
   );

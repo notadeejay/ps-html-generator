@@ -29,6 +29,12 @@ function App() {
   
   
   function formatCode(type, word, code) {
+
+    if (type === "") {
+      setHtml("")
+      setCSS("")
+    } else {
+
     let color = type === "instruction" ? "#247F3B"
     : type === "note" ? "#1375AA"
     : type === "warning" ? "#D30307"
@@ -39,9 +45,8 @@ function App() {
     let leadingWord = word ? word : type.charAt(0).toUpperCase() + type.slice(1)
 
     let formattedCode = `<div class="callout ${type}"><p><span style="color:${color};"><strong>${leadingWord}:</strong></span> ${code}</p></div>`
-    
     setHtml(formattedCode)
-     
+    }
   }
 
  
