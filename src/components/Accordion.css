@@ -1,0 +1,35 @@
+
+.clickable-1, .clickable-4 {
+    background-color: #1A9DE5;
+    border: none;
+
+}
+
+.clickable-2, .clickable-5 {
+    background-color: #FC5155;
+    border: none;
+}
+
+.clickable-3 {
+    background-color: #FFC000;
+    border: none;
+}
+
+.content {
+    background-color: lightgray;
+    border: none;
+    color: black;
+}
+
+.accordion-form input {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.accordion-form input::placeholder {
+    color: black;
+}
+
+.accordion-form textarea::placeholder {
+    color: black;
+}

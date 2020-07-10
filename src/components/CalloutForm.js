@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Form.css'
 import Button from './Button'
 
-export default function Form(props) {
+export default function Callout(props) {
     const [lead, setLead] = useState("");
     const [type, setType] = useState("instruction" | "")
     const [text, setText] = useState("")
@@ -12,7 +12,7 @@ export default function Form(props) {
       if (type === 0) {
         alert("The callout type cannot be blank");
       } else {
-        props.getCode(type, lead, text); 
+        formatCode(type, lead, text); 
       }
   } 
 
@@ -21,9 +21,45 @@ export default function Form(props) {
     setLead("")
     setText("")
     setType("")
-    props.getCode(type, lead, text)
+    props.clearForm()
   }
+  
+  function addCSS(color, type) {
+    let formatCSS = `/* core formatting for the callout div */
+.callout {
+  padding: 10px 20px;
+  max-width: 95%;
+  margin: 20px auto;
+  background-color: #F5F5F5;
+  color: black;
+  border-radius: 5px;
+}
+/* adds the correct color border based on callout type */
+.${type}{
+  border-left: 3px solid ${color};
+}`
+    return formatCSS
+  }
+  
+  
+  
+  function formatCode(type, word, code) {
+    let color = type === "instruction" ? "#247F3B"
+    : type === "note" ? "#1375AA"
+    : type === "warning" ? "#D30307"
+    : type === "definition" ? "#2B4497" : "#000000"
+    
+    let formattedCSS = addCSS(color, type)
+    
+    let leadingWord = word ? word : type.charAt(0).toUpperCase() + type.slice(1)
 
+    let formattedCode = `<div class="callout ${type}"><p><span style="color:${color};"><strong>${leadingWord}:</strong></span> ${code}</p></div>`
+    
+    props.getCode(formattedCode,formattedCSS )
+    }
+  
+
+ 
 
   return (
    <div className="container form">
