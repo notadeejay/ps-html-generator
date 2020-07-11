@@ -5,6 +5,8 @@ import Button from './Button'
 
 export default function Accordion(props) {
   const [inputs, setInputs] = useState(1);
+  const [value, setValue] = useState("")
+  const [dropdown, setDropdown] = useState({1:{header:"", content:""}})
   
    
 //   function validate() {
@@ -57,14 +59,33 @@ export default function Accordion(props) {
 //     props.getCode(formattedCode,formattedCSS )
 //     }
   
-  
+
+// Need to figure out a way to handle the change, get a complete value and then add to list.
+
+  function handleChange(e, i) {
+    const value = e.value;
+    setDropdown({
+      ...dropdown,[i]:{
+        ...dropdown[i], 
+        [e.name]:value }
+    });
+
+  }
+
+  console.log(dropdown)
+ 
+
   function generateInputs(number) {
     const inputs = [];
     for (let i = 1; i <= number; i++) {
       inputs.push(
         <React.Fragment>
-        <input placeholder={"Your heading here"}className={`clickable-${i}`} name={`input-${i}`} />
-        <textarea placeholder={"Type your content here"} className={`content`} name={`content-${i}`} />
+        <input onChange={event => {
+              handleChange(event.target, i);
+              }} placeholder={"Your heading here"} className={`clickable-${i}`}  name={`header`} />
+        <textarea placeholder={"Type your content here"} onChange={event => {
+              handleChange(event.target, i);
+              }} className={`content`}  name={`content`} />
         </React.Fragment>
       )
     }
