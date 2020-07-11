@@ -43,3 +43,45 @@
   .css {
     width: 35%;
   }
+
+  .collapsible {
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    outline: none;
+    margin-top: 4px;
+  
+  }
+  
+  /* Add a background color to the button if it is hovered over*/
+  .active, .collapsible:hover {
+    filter: brightness(85%)
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .hidden-content {
+    padding: 12px 18px 0px 18px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    display: none;
+  border-radius: 5px;
+  }
+  
+  .toggle-content {
+    display: block;
+  }
+  
+  .yellow {
+  background-color: #FFC000;
+  }
+  
+  .red {
+  background-color: #FC5155;
+  }
+  
+  .blue {
+  background-color: #1A9DE5;
+  }

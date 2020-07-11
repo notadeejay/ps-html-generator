@@ -5,7 +5,6 @@ import Button from './Button'
 
 export default function Accordion(props) {
   const [inputs, setInputs] = useState(1);
-  const [value, setValue] = useState("")
   const [dropdown, setDropdown] = useState({1:{header:"", content:""}})
   
    
@@ -25,42 +24,84 @@ export default function Accordion(props) {
 //     props.clearForm()
 //   }
   
-//   function addCSS(color, type) {
-//     let formatCSS = `/* core formatting for the callout div */
-// .callout {
-//   padding: 10px 20px;
-//   max-width: 95%;
-//   margin: 20px auto;
-//   background-color: #F5F5F5;
-//   color: black;
-//   border-radius: 5px;
-// }
-// /* adds the correct color border based on callout type */
-// .${type}{
-//   border-left: 3px solid ${color};
-// }`
-//     return formatCSS
-//   }
-  
-  
-  
-//   function formatCode(type, word, code) {
-//     let color = type === "instruction" ? "#247F3B"
-//     : type === "note" ? "#1375AA"
-//     : type === "warning" ? "#D30307"
-//     : type === "definition" ? "#2B4497" : "#000000"
+  function addCSS() {
+    let formatCSS = `.collapsible {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  outline: none;
+  margin-top: 4px;
     
-//     let formattedCSS = addCSS(color, type)
+}
     
-//     let leadingWord = word ? word : type.charAt(0).toUpperCase() + type.slice(1)
+/* Add a background color to the button if it is hovered over*/
+.active, .collapsible:hover {
+  filter: brightness(85%)
+}
+      
+    
+/* Style the collapsible content. Note: hidden by default */
+.hidden-content {
+  padding: 12px 18px 0px 18px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: none;
+  border-radius: 5px;
+}
+    
+.toggle-content {
+  display: block;
+}
+    
+.yellow {
+  background-color: #FFC000;
+}
 
-//     let formattedCode = `<div class="callout ${type}"><p><span style="color:${color};"><strong>${leadingWord}:</strong></span> ${code}</p></div>`
-    
-//     props.getCode(formattedCode,formattedCSS )
-//     }
+.red {
+  background-color: #FC5155;
+}
+
+.blue {
+  background-color: #1A9DE5;
+}`
+    return formatCSS
+  }
   
 
-// Need to figure out a way to handle the change, get a complete value and then add to list.
+function clear() {
+  setDropdown({})
+  setInputs(1)
+  props.clearForm()
+}
+
+  
+  
+  function formatCode() {
+    let colorArray = ["blue", "yellow", "red", "blue", "yellow"]
+    let divArray = []
+    for (const number in dropdown) {
+      
+      let html =`<div>
+  <button class="collapsible ${colorArray[number]}" onclick="document.getElementById('box-${number}').classList.toggle('toggle-content')">${dropdown[number]['header']}</button>
+</div>
+
+<div class="hidden-content" id="box-${number}">
+  <p>${dropdown[number]['content']}</p>
+</div>
+
+`
+      divArray.push(html)
+    }
+    
+    let formattedHTML = divArray.join('\n')
+    let formattedCSS = addCSS()
+    props.getCode(formattedHTML, formattedCSS)
+  }
+  
+
 
   function handleChange(e, i) {
     const value = e.value;
@@ -69,10 +110,9 @@ export default function Accordion(props) {
         ...dropdown[i], 
         [e.name]:value }
     });
-
   }
 
-  console.log(dropdown)
+
  
 
   function generateInputs(number) {
@@ -110,6 +150,7 @@ export default function Accordion(props) {
         <option value="5">5</option>
       </select>
        {generateInputs(inputs)}
+       <Button validate={formatCode} clear={clear}/>
       </form>
     </div>
   );

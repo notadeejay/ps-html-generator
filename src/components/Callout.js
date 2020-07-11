@@ -8,7 +8,7 @@ export default function Callout(props) {
   return (
   <div className = "example">
       {example && 
-      <h3>Your callout will look like this:</h3> }
+      <h3>Your element will look like this:</h3> }
       <Markup content={props.html} /> 
   </div>
   );

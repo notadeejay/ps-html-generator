@@ -25,7 +25,7 @@ function App() {
  
   return (
     <div className="App">
-       <Accordion />
+      <Accordion getCode={getCode} clearForm={clearForm} />
       <Snippet html={html} css={css}/>
     </div>
   );
