@@ -1,3 +1,8 @@
+
+## Pathstream HTML and CSS generator
+This app was built to help LXDs at easily Pathstream create HTML and CSS elements for the platform.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
