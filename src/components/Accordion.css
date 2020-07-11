@@ -16,14 +16,22 @@
 }
 
 .content {
-    background-color: lightgray;
+    background-color: #C0C0C0;
     border: none;
     color: black;
 }
 
+.content:focus{
+    background-color: #DCDCDC;
+}
+
 .accordion-form input {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     color: black;
+}
+
+.accordion-form input:focus {
+    background-color: #DCDCDC;
 }
 
 .accordion-form input::placeholder {
@@ -32,4 +40,8 @@
 
 .accordion-form textarea::placeholder {
     color: black;
+}
+
+.accordion-form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1A9DE5 inset;
 }
