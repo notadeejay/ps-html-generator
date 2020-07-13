@@ -8,23 +8,8 @@ export default function Accordion(props) {
   const [inputs, setInputs] = useState(1);
   const [dropdown, setDropdown] = useState({1:{header:"", content:""}})
   
-   
-//   function validate() {
-//       if (type === 0) {
-//         alert("The callout type cannot be blank");
-//       } else {
-//         formatCode(type, lead, text); 
-//       }
-//   } 
 
-
-//   function clear() {
-//     setLead("")
-//     setText("")
-//     setType("")
-//     props.clearForm()
-//   }
-  
+  // Formats the CSS, bad indenting is due to Code Mirror formatting from string
   function addCSS() {
     let formatCSS = `.collapsible {
   cursor: pointer;
@@ -72,6 +57,7 @@ export default function Accordion(props) {
     return formatCSS
   }
   
+// Clears the form
 
 function clear(form) {
   setDropdown({})
@@ -80,7 +66,7 @@ function clear(form) {
 }
 
   
-  
+// Takes the information from the Inputs and creates the HTML for each pair.  
   function formatCode() {
     let colorArray = ["blue", "yellow", "red", "blue", "yellow"]
     let divArray = []
@@ -104,7 +90,7 @@ function clear(form) {
   }
   
 
-
+// Takes the existing dropdown and updates it in state
   function handleChange(e, i) {
     const value = e.value;
     setDropdown({
@@ -116,7 +102,7 @@ function clear(form) {
 
 
  
-
+// Generates the number of input fields based on user input 
   function generateInputs(number) {
     const inputs = [];
     for (let i = 1; i <= number; i++) {
