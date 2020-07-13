@@ -34,7 +34,8 @@ export default function Accordion(props) {
   text-align: left;
   outline: none;
   margin-top: 4px;
-    
+  font-weight: 700;
+  font-size: 1.4em; 
 }
     
 /* Add a background color to the button if it is hovered over*/
