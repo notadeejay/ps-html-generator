@@ -3,6 +3,7 @@ import './Form.css'
 import './Accordion.css'
 import Button from './Button'
 
+
 export default function Accordion(props) {
   const [inputs, setInputs] = useState(1);
   const [dropdown, setDropdown] = useState({1:{header:"", content:""}})
@@ -35,7 +36,7 @@ export default function Accordion(props) {
   outline: none;
   margin-top: 4px;
   font-weight: 700;
-  font-size: 1.4em; 
+  font-size: 1.2em; 
 }
     
 /* Add a background color to the button if it is hovered over*/
@@ -72,7 +73,7 @@ export default function Accordion(props) {
   }
   
 
-function clear() {
+function clear(form) {
   setDropdown({})
   setInputs(1)
   props.clearForm()
