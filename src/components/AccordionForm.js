@@ -11,7 +11,7 @@ export default function Accordion(props) {
 
   // Formats the CSS, bad indenting is due to Code Mirror formatting from string
   function addCSS() {
-    let formatCSS = `.collapsible {
+    let formatCSS = `.acc-collapsible {
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -25,13 +25,13 @@ export default function Accordion(props) {
 }
     
 /* Add a background color to the button if it is hovered over*/
-.active, .collapsible:hover {
+.active, .acc-collapsible:hover {
   filter: brightness(85%)
 }
       
     
 /* Style the collapsible content. Note: hidden by default */
-.hidden-content {
+.acc-content {
   padding: 12px 18px 0px 18px;
   overflow: hidden;
   background-color: #f1f1f1;
@@ -73,10 +73,10 @@ function clear(form) {
     for (const number in dropdown) {
       
       let html =`<div>
-  <button class="collapsible ${colorArray[number]}" onclick="document.getElementById('box-${number}').classList.toggle('toggle-content')">${dropdown[number]['header']}</button>
+  <button class="acc-collapsible ${colorArray[number]}" onclick="document.getElementById('box-${number}').classList.toggle('toggle-content')">${dropdown[number]['header']}</button>
 </div>
 
-<div class="hidden-content" id="box-${number}">
+<div class="acc-content" id="box-${number}">
   <p>${dropdown[number]['content']}</p>
 </div>
 
