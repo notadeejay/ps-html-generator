@@ -25,7 +25,7 @@ export default function Accordion(props) {
 }
     
 /* Add a background color to the button if it is hovered over*/
-.active, .acc-collapsible:hover {
+.acc-collapsible:hover {
   filter: brightness(85%)
 }
       
@@ -39,7 +39,7 @@ export default function Accordion(props) {
   border-radius: 5px;
 }
     
-.toggle-content {
+.acc-toggle-content {
   display: block;
 }
     
@@ -73,7 +73,7 @@ function clear(form) {
     for (const number in dropdown) {
       
       let html =`<div>
-  <button class="acc-collapsible ${colorArray[number]}" onclick="document.getElementById('box-${number}').classList.toggle('toggle-content')">${dropdown[number]['header']}</button>
+  <button class="acc-collapsible ${colorArray[number]}" onclick="document.getElementById('box-${number}').classList.toggle('acc-toggle-content')">${dropdown[number]['header']}</button>
 </div>
 
 <div class="acc-content" id="box-${number}">

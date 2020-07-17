@@ -58,7 +58,7 @@
   }
   
   /* Add a background color to the button if it is hovered over*/
-  .active, .acc-collapsible:hover {
+.acc-collapsible:hover {
     filter: brightness(85%)
   }
   
@@ -71,7 +71,7 @@
   border-radius: 5px;
   }
   
-  .toggle-content {
+  .acc-toggle-content {
     display: block;
   }
   
