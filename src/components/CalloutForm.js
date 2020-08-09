@@ -34,10 +34,22 @@ export default function Callout(props) {
   color: black;
   border-radius: 5px;
 }
-/* adds the correct color border based on callout type */
-.${type}{
-  border-left: 3px solid ${color};
-}`
+.instruction{
+  border-left: 3px solid #247F3B;
+}
+
+.note {
+ border-left: 3px solid #1375AA;
+}
+
+.warning {
+ border-left: 3px solid #D30307;
+}
+
+.definition {
+border-left: 3px solid #2B4497;
+}
+`
     return formatCSS
   }
   
