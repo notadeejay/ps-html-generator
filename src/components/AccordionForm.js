@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Form.css'
 import './Accordion.css'
 import Button from './Button'
+import uuid from 'react-uuid'
 
 
 export default function Accordion(props) {
@@ -71,12 +72,12 @@ function clear(form) {
     let colorArray = ["blue", "yellow", "red", "blue", "yellow"]
     let divArray = []
     for (const number in dropdown) {
-      
+      let uid = uuid()
       let html =`<div>
-  <button class="acc-collapsible ${colorArray[number]}" onclick="document.getElementById('box-${number}').classList.toggle('acc-toggle-content')">${dropdown[number]['header']}</button>
+  <button class="acc-collapsible ${colorArray[number]}" onclick="document.getElementById('box-${uid}').classList.toggle('acc-toggle-content')">${dropdown[number]['header']}</button>
 </div>
 
-<div class="acc-content" id="box-${number}">
+<div class="acc-content" id="box-${uid}">
   <p>${dropdown[number]['content']}</p>
 </div>
 
